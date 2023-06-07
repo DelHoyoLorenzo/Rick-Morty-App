@@ -1,0 +1,26 @@
+.detailConteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.detail{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    color:white;
+    padding: 5px;
+    margin: 10px;
+}
+
+.textos{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}

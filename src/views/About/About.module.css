@@ -1,0 +1,6 @@
+.aboutConteiner{
+    display: flex;
+    justify-content: center;
+    background: red;
+    height: 100vh;
+}
