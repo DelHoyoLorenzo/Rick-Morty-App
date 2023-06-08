@@ -1,6 +1,6 @@
 .cartas{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 40px;
-    margin: 45px;
+    grid-gap: 30px;
+    margin: 30px;
 }

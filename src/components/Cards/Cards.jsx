@@ -6,7 +6,7 @@ export default function Cards(props) {
    return (
    <div className={style.cartas}>
       {characters.map((character)=>
-         <Card className={style.cartas} /* key={character.id} */ character={character} onClose ={onClose}/>
+         <Card className={style.cartas} key={character.id} character={character} onClose ={onClose}/>
       )}
    </div>
    );

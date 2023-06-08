@@ -1,6 +1,6 @@
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import style from './Nav.module.css';
-import imagen from '../Assets/logo.jpg'
+import imagen from '../../Assets/logo.jpg'
 import { Link } from 'react-router-dom';
 
 export default function Nav(props){
@@ -34,7 +34,7 @@ export default function Nav(props){
 
             </div>
             
-            <img className={style.imagen} src={imagen}/>
+            <img className={style.imagen} src={imagen} alt='imagen'/>
 
             <div className={style.sectorBar}>
                 <h2 >{texto}</h2>

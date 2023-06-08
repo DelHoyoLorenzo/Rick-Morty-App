@@ -1,7 +1,6 @@
 import Nav from './components/Nav/Nav.jsx';
 import Cards from './components/Cards/Cards.jsx';
 
-import style from './App.module.css';
 
 import { useNavigate } from 'react-router-dom';
 import {useState, useEffect} from 'react';
@@ -14,30 +13,22 @@ import Error from './views/Error/Error.jsx'
 import Form from './views/Form/Form.jsx';
 import Favorites from './views/Favorites/Favorites.jsx';
 
-function App() {
+import { removeFav } from './redux/actions.js';
+import {connect} from 'react-redux'
+
+function App({removeFav}) {
    let [characters,setCharacters] = useState([]);
    
    let onClose=function(id){
       const filtrados = characters.filter((elem)=>elem.id !== id);
 
       setCharacters(filtrados);
+      removeFav(id);
    }
 
    function onSearchRandom(){
       let ident=Math.floor(Math.random()*826)+1;
-      
-      if(!characters.find((elem)=> elem.id === ident)){                                          
-         fetch(`https://rickandmortyapi.com/api/character/${ident}`)
-         .then((res)=>res.json())
-         .then((data)=>{if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }});
-      }else{
-         window.alert('Ya esta repetido');
-      }
-
+      onSearch(ident);
    }
    
    function onSearch(id){
@@ -49,9 +40,9 @@ function App() {
          } else {
             window.alert('¡No hay personajes con este ID!');
          }});
-      }/* else{
+      }else{
          window.alert('Ya esta repetido');
-      } */
+      }
    }
    
    let location = useLocation();
@@ -70,7 +61,7 @@ function App() {
 
    useEffect(() => { //hace que mi pagina tenga acceso al momento de la carga
       !access && navigate('/');//en el mount el access es false
-   }, [access]); //cada vez que el acceso de mi pagina cambie, vuelvo a ejecutar la funcion
+   }, [access,navigate]); //cada vez que el acceso de mi pagina cambie, vuelvo a ejecutar la funcion
 
    function logOut(){
       setAccess(false);
@@ -84,7 +75,7 @@ function App() {
       
       
       <Routes>
-         <Route path='/favorites' element={<Favorites/>}></Route>
+         <Route path='/favorites' element={<Favorites onClose={onClose}/>} />
          <Route path='/about' element={<About />}/>
          <Route path='/detail/:id' element={<Detail />}/>
          <Route path='/' element={<Form login={login} />}/>
@@ -95,4 +86,12 @@ function App() {
    );
 }
 
-export default App;
+export function mapDispatchToProps(dispatch) {
+   return {
+     removeFav: (id) => {
+       return dispatch(removeFav(id));
+     },
+   };
+ }
+
+ export default connect(null, mapDispatchToProps)(App);

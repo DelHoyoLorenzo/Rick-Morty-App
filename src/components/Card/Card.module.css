@@ -4,14 +4,14 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    background-color: rgb(175, 230, 173);
+    background-color: rgb(77, 64, 196);
     border: 2px black solid;
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
     transition: 0.5s;
     &:hover {
       background-color: transparent;
-      scale: 1.1;
+      scale: 0.96;
     }
     animation: rotatescaledown 0.4s linear both;
 }
