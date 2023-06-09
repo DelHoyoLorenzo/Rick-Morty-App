@@ -25,7 +25,7 @@ export function Favorites({myFavorites, onClose}){
                 <option value="A">Ascendente</option>
                 <option value="D">Descendente</option>
             </select>
-            <select placeholder='Gender' onChange={handleFilter}>
+            <select onChange={handleFilter}>
                 <option value="AllCharacters">AllCharacters</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
