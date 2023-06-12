@@ -1,8 +1,8 @@
 
-.warning {
-    border: solid red 1px;
-    border-radius: 0.2em;
-  }
+.warning{
+  border: solid red 1px;
+  border-radius: 0.2em;
+}
   
 .danger {
   font-size: 10px;
@@ -21,13 +21,46 @@
 .form{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
   padding: 50px;
   flex-direction: column;
-  background: blueviolet;
   border-radius: 10px;
   border: 1px solid black;
-  width: 300px;
-  height: 300px
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at top, #000000, #000000 10%, #040047 50%, #1d006e 70%, #390099 80%, #5f00b4 90%, #8100cc);
+  background-size: 200% 200%;
+  animation: nebulaAnimation 30s ease infinite;
+  border: 5px solid wheat;
+}
+
+@keyframes nebulaAnimation {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+.label{
+  color: wheat;
+  font-size: xx-large;
+}
+
+.input{
+  font-size: xx-large;
+  border-radius: 10px;
+}
+
+.boton{
+  font-size: x-large;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  border:2px solid wheat;
 }

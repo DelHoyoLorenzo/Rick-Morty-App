@@ -7,9 +7,9 @@ export default function Nav(props) {
   let { onSearch, onSearchRandom, logOut } = props;
 
   return (
-    <div className={style.nav}>
-      <div /* className={style.botones} */>
-        <h1 className={style.title}>Rick and Morty App</h1>
+    <div className={style.sectorBarraNav}>
+      <div>
+        <h1 className={style.titulo}>Rick and Morty App</h1>
       </div>
       <div className={style.sectorBotones} >
         <Link to="/about">
@@ -21,7 +21,7 @@ export default function Nav(props) {
         </Link>
 
         <Link to="/favorites">
-          <button className={style.boton}>Favorites</button>
+          <button className={style.botonFav}>Favorites</button>
         </Link>
         <div>
           <button className={style.boton} onClick={logOut}>

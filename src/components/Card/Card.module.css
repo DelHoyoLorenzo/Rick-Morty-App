@@ -36,7 +36,6 @@
   margin: 20px;
   font-size: xx-large;
 }
-
 .boton:hover {
   background-color: black;
   color: white;
@@ -49,11 +48,12 @@
 .imagen {
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 0 10px #a300e2, 0 0 20px #8100cc, 0 0 30px #5f00b4, 0 0 40px #390099, 0 0 50px #1d006e, 0 0 60px #040047, 0 0 70px #000000;
 }
 
 .texto {
-  color: rgb(83, 81, 81);
+  color: #526D82;
   font-family: "Courier New", Courier, monospace;
 }
 

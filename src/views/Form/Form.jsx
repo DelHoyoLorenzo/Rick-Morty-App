@@ -45,9 +45,9 @@ export default function Form({login}){
     return(
       <div className={style.conteinerForm}>
         <form onSubmit={handleSubmit} className={style.form}> {/* porque el boton es de tipo submit */}
-            <label>EMAIL</label>
+            <label className={style.label}>Introduzca su email</label>
             <input
-            className={errors.email && style.warning}
+            className={style.label}
             onChange={handleChange}
             name='email'
             value={userData.email}
@@ -56,9 +56,9 @@ export default function Form({login}){
             />
             {errors.email && <p className={style.danger}>{errors.email}</p>}
 
-            <label>PASSWORD</label>
+            <label className={style.label}>Contraseña</label>
             <input
-            className={errors.password && style.warning}
+            className={style.label}
             onChange={handleChange}
             name='password'
             value={userData.password}
@@ -66,7 +66,7 @@ export default function Form({login}){
             placeholder="Escribe tu password..."
             />
             {errors.password && <p className={style.danger}>{errors.password}</p>}
-            <button type="submit" /* onClick={handleSubmit} */>SUBMIT</button>
+            <button className={style.boton} type="submit">SUBMIT</button>
         </form>
         </div>  
     )
