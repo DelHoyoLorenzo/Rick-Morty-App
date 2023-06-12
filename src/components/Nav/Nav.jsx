@@ -1,49 +1,40 @@
-import SearchBar from '../SearchBar/SearchBar.jsx';
-import style from './Nav.module.css';
-import imagen from '../../Assets/logo.jpg'
-import { Link } from 'react-router-dom';
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import style from "./Nav.module.css";
+import imagen from "../../Assets/logo.jpg";
+import { Link } from "react-router-dom";
 
-export default function Nav(props){
-    
-    let {onSearch, onSearchRandom, logOut}=props;
-    
-    let texto ='Agregue su personaje por su Id';
+export default function Nav(props) {
+  let { onSearch, onSearchRandom, logOut } = props;
 
-    return(
+  return (
+    <div className={style.nav}>
+      <div /* className={style.botones} */>
+        <h1 className={style.title}>Rick and Morty App</h1>
+      </div>
+      <div className={style.sectorBotones} >
+        <Link to="/about">
+          <button className={style.boton}>About</button>
+        </Link>
 
-        <div className={style.nav}>
-            <div className={style.tituloYBotones}>
-                <div className={style.botones}>
-                    <Link to='/about'>
-                        <button>About</button>
-                    </Link>
-                    
-                    <Link to='/home'>
-                        <button>Home</button>
-                    </Link>
+        <Link to="/home">
+          <button className={style.boton}>Home</button>
+        </Link>
 
-                    <Link to='/favorites'>
-                        <button>Favorites</button>
-                    </Link>    
-                    <button onClick={logOut}>Log out</button>
+        <Link to="/favorites">
+          <button className={style.boton}>Favorites</button>
+        </Link>
+        <div>
+          <button className={style.boton} onClick={logOut}>
+            Log out
+          </button>
+        </div>
+      </div>
 
-                </div>
-            
-                <h1 className={style.titulo}>Rick and Morty App</h1>
+      {/* <img className={style.imagen} src={imagen} alt='imagen'/> */}
 
-
-            </div>
-            
-            <img className={style.imagen} src={imagen} alt='imagen'/>
-
-            <div className={style.sectorBar}>
-                <h2 >{texto}</h2>
-                <SearchBar onSearch={onSearch} />
-                <button onClick={onSearchRandom}>Random</button>
-            </div>
-            
-         </div>
-
-
-    );
+      <div className={style.sectorBar}>
+        <SearchBar onSearch={onSearch} onSearchRandom={onSearchRandom} />
+      </div>
+    </div>
+  );
 }

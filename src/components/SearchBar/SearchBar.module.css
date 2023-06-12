@@ -10,4 +10,45 @@
     margin:2px;
     font-size:x-large;
     border-radius: 7px;
+    color:black;
+}
+
+.boton{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+
+.SearchBar {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 8px;
+}
+
+.SearchBar input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 4px;
+  font-size: 16px;
+}
+
+.SearchBar button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.SearchBar button:hover {
+  background-color: #ebebeb;
 }
