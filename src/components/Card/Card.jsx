@@ -45,9 +45,10 @@ export function Card(props) {
       ) : (
         <button onClick={handleFavorite}>🤍</button>
       )}
-      <Link to={`/detail/${character.id}`}>
-        <h2 className={style.tituloCarta}>{character.name}</h2>
-      </Link>
+      {/* <Link to={`/detail/${character.id}`}>
+        
+      </Link> */}
+      <h2 className={style.tituloCarta}>{character.name}</h2>
       {/* <h2 className={style.texto}>{character.status}</h2> */}
       <h2 className={style.texto}>{character.species}</h2>
       <h2 className={style.texto}>{character.gender}</h2>

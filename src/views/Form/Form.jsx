@@ -47,7 +47,7 @@ export default function Form({login}){
         <form onSubmit={handleSubmit} className={style.form}> {/* porque el boton es de tipo submit */}
             <label className={style.label}>Introduzca su email</label>
             <input
-            className={style.label}
+            className={style.input}
             onChange={handleChange}
             name='email'
             value={userData.email}
@@ -58,7 +58,7 @@ export default function Form({login}){
 
             <label className={style.label}>Contraseña</label>
             <input
-            className={style.label}
+            className={style.input}
             onChange={handleChange}
             name='password'
             value={userData.password}
