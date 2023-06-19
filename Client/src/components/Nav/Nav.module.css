@@ -18,6 +18,8 @@
   font-weight: bold;
   color: #ffffff;
   padding: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
   background: linear-gradient(45deg, #000000, #040047, #1d006e, #390099, #5f00b4, #8100cc, #a300e2);
   background-size: 200% 200%;
   animation: gradientAnimation 10s ease infinite;

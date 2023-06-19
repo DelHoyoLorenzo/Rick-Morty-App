@@ -9,7 +9,7 @@
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
     transition: 0.5s;
-    height: 600px;
+    height: auto;
     margin-bottom: 50px;
     &:hover {
       background-color: transparent;
@@ -33,7 +33,8 @@
   background-color: wheat;
   border-radius: 10px;
   cursor: pointer;
-  margin: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: xx-large;
 }
 .boton:hover {
@@ -41,7 +42,8 @@
   color: white;
   border-radius: 10px;
   cursor: pointer;
-  margin: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: xx-large;
 }
 
@@ -55,12 +57,14 @@
 .texto {
   color: wheat;
   font-family: "Courier New", Courier, monospace;
+  margin: 1%;
 }
 
 .tituloCarta {
   color: black;
   font-size: 40px;
   font-family: "Get Schwifty";
+  margin: 1%;
 }
 
 

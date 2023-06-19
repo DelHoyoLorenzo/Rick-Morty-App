@@ -14,7 +14,9 @@ import Form from './views/Form/Form.jsx';
 import Favorites from './views/Favorites/Favorites.jsx';
 
 import { removeFav } from './redux/actions.js';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+
+import axios from "axios";
 
 function App({removeFav}) {
    let [characters,setCharacters] = useState([]);
@@ -32,16 +34,13 @@ function App({removeFav}) {
    }
    
    function onSearch(id){
-      if(! characters.find((elem)=> elem.id === parseInt(id))){                                          
-         fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      if(!characters.find((elem)=> elem.id === parseInt(id))){                                          
+         fetch(`http://localhost:3001/rickandmorty/character/${id}`)
          .then((res)=>res.json())
-         .then((data)=>{if (data.name) {
+         .then((data)=>{
             setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }});
-      }else{
-         window.alert('Ya esta repetido');
+         }).
+         catch((error)=> window.alert('No hay personajes con ese Id'))
       }
    }
    
@@ -49,14 +48,14 @@ function App({removeFav}) {
    const navigate = useNavigate();
    const [access,setAccess]= useState(false);
 
-   const EMAIL = 'delhoyo.lorenzo@gmail.com';
-   const PASSWORD = '123456';
-
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => { //hace que mi pagina tenga acceso al momento de la carga
@@ -70,10 +69,8 @@ function App({removeFav}) {
 
    return (
       <div>
-      
       {location.pathname !=='/' && <Nav onSearch={onSearch} onSearchRandom={onSearchRandom} logOut={logOut}/> }
-      
-      
+
       <Routes>
          <Route path='/favorites' element={<Favorites onClose={onClose}/>} />
          <Route path='/about' element={<About />}/>

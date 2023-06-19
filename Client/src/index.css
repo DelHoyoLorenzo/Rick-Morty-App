@@ -1,0 +1,30 @@
+body {
+  margin: 0%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  background: url('./Assets/fondo2.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position:center;
+  animation: background-animation 15s linear infinite;
+}
+
+@keyframes background-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes background-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%; /* Ajusta el valor según tus necesidades */
+  }
+}

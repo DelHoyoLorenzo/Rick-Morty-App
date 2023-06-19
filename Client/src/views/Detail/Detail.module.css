@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.detailConteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.imagen{
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    height: 420px;
+    width: 500px;
+    border-radius: 50px;
+    opacity: 0.4;
+}
+
+.textos{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  animation: color-animation 5s infinite; /* Duración de la animación y repetición infinita */
+}
+
+@keyframes color-animation {
+  0% {
+    color: #00FF00; /* Color inicial del texto (verde) */
+  }
+  50% {
+    color: #FF9900; /* Color del texto a mitad de la animación (naranja) */
+  }
+  100% {
+    color: #FF0000; /* Color final del texto (rojo) */
+  }
+
+}

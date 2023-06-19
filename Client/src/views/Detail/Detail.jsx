@@ -11,7 +11,7 @@ export default function Detail(){
     const [loading, setLoading]= useState(true);
     
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        fetch(`http://localhost:3001/rickandmorty/character/${id}`)
            .then(response => response.json())
            .then(data => {
               if (data.name) {
@@ -34,16 +34,15 @@ export default function Detail(){
     if(Object.keys(character).length !== 0){
             return( 
             <div className={style.detailConteiner} >
-               <div className={style.detail}>
-                  <div className={style.textos}> 
-                     <h2 /* className={style.tituloCarta} */>Name: {character.name}</h2>
-                     <h2 /* className={style.texto} */>Status: {character.status}</h2>
-                     <h2 /* className={style.texto} */>Specie:{character.species}</h2>
-                     <h2 /* className={style.texto} */>Gender:{character.gender}</h2>
-                     <h2 /* className={style.texto} */>Origin: {character.origin.name}</h2>
-                     <img /* className={style.imagen} */ src={character.image} alt={character.name} />
-                  </div>
-               </div> 
+               <img className={style.imagen} src={character.image} alt={character.name} />
+               
+               <div className={style.textos}> 
+                  <h2 /* className={style.tituloCarta} */>Name: {character.name}</h2>
+                  <h2 /* className={style.texto} */>Status: {character.status}</h2>
+                  <h2 /* className={style.texto} */>Specie:{character.species}</h2>
+                  <h2 /* className={style.texto} */>Gender:{character.gender}</h2>
+                  <h2 /* className={style.texto} */>Origin: {character.origin}</h2>
+               </div>
             </div>
              );
         }else{

@@ -7,20 +7,33 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case 'ADD_FAV':
-            return{
-                ...state,
-                myFavorites: [...state.myFavorites, action.payload],
-                allCharacters:[...state.allCharacters, action.payload],
-                // creo una copia de todos mis favoritos, en allCharacters
-            };
+                return{
+                    ...state,
+                    myFavorites: [...state.myFavorites, action.payload],
+                    allCharacters:[...state.myFavorites, action.payload],
+                    // creo una copia de todos mis favoritos, en allCharacters
+                };
+        /* case 'ADD_FAV':
+            return { 
+                ...state, 
+                myFavorites: action.payload, 
+                allCharacters: action.payload 
+            }; */
+        
         case 'REMOVE_FAV':
+            return { 
+                ...state, 
+                myFavorites: action.payload 
+            };
+        /* case 'REMOVE_FAV':
             return{
                 ...state,
                 myFavorites: [...state.myFavorites.filter((personaje)=>{return personaje.id !== Number(action.payload)})],
                 allCharacters: [...state.allCharacters.filter((personaje)=>{return personaje.id !== Number(action.payload)})]
+            } */
 /* (...)se usa para crear una copia del array original, garantiza que se mantenga inmutable 
 y se devuelva un nuevo array en lugar de modificar el existente. */
-            }
+            
         
         case 'FILTER':
             

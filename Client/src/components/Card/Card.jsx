@@ -50,8 +50,8 @@ export function Card(props) {
       </Link> */}
       <h2 className={style.tituloCarta}>{character.name}</h2>
       {/* <h2 className={style.texto}>{character.status}</h2> */}
-      <h2 className={style.texto}>{character.species}</h2>
-      <h2 className={style.texto}>{character.gender}</h2>
+      {/* <h2 className={style.texto}>{character.species}</h2>
+      <h2 className={style.texto}>{character.gender}</h2> */}
       {/* <h2 className={style.texto}>{character.origin.name}</h2> */}
       <img
         className={style.imagen}
