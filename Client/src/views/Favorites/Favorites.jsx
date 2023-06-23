@@ -1,14 +1,13 @@
 import Card from '../../components/Card/Card.jsx'
 import {connect} from "react-redux";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {filterCards,orderCards} from '../../redux/actions.js'
 import {useState} from 'react'
-import {onClose} from '../../App.js'
 import style from './Favorites.module.css'
 
-export function Favorites({myFavorites, onClose}){
+export function Favorites({onClose}){
     let dispatch = useDispatch();
-    
+    let myFavorites = useSelector((state)=> state.myFavorites)
     const [aux, setAux]=useState(false);
 
     let handleOrder = function(e){
@@ -44,10 +43,4 @@ export function Favorites({myFavorites, onClose}){
     );
 }
 
-export function mapStateToProps(state){
-    return{
-        myFavorites: state.myFavorites
-    }//me traigo del estado global a su propiedad myFavorites
-}
-
-export default connect(mapStateToProps, null)(Favorites);
+export default Favorites;

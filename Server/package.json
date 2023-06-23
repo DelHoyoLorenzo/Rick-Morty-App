@@ -366,7 +366,6 @@
     "istanbul-lib-source-maps": "^4.0.1",
     "istanbul-reports": "^3.1.5",
     "jake": "^10.8.7",
-    "jest": "^27.5.1",
     "jest-changed-files": "^27.5.1",
     "jest-circus": "^27.5.1",
     "jest-cli": "^27.5.1",
@@ -453,6 +452,7 @@
     "minimatch": "^3.1.2",
     "minimist": "^1.2.8",
     "mkdirp": "^0.5.6",
+    "morgan": "^1.10.0",
     "ms": "^2.1.2",
     "multicast-dns": "^7.2.5",
     "mz": "^2.7.0",
@@ -817,9 +817,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/index.js"
+    "start": "nodemon ./src/index.js",
+    "test": "jest --detectOpenHandles"
   },
   "keywords": [],
   "author": "Lorenzo Martin Del Hoyo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "supertest": "^6.3.3"
+  }
 }

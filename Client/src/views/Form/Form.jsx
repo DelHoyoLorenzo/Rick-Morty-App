@@ -43,8 +43,8 @@ export default function Form({login}){
       
     
     return(
-      
-        <form onSubmit={handleSubmit} className={style.form}> {/* porque el boton es de tipo submit */}
+      <div className={style.conteinerForm}>
+        <form onSubmit={handleSubmit} className={style.form}>
             <label className={style.label}>Introduzca su email</label>
             <input
             className={style.input}
@@ -68,6 +68,6 @@ export default function Form({login}){
             {errors.password && <p className={style.danger}>{errors.password}</p>}
             <button className={style.boton} type="submit">SUBMIT</button>
         </form>
-     
+      </div>
     )
 }

@@ -9,10 +9,10 @@ const mainRouter = Router();
 
 mainRouter.get('/character/:id', getCharById);
 
-mainRouter.get('/login',loginHandler);
+mainRouter.get('/login', loginHandler);
 
-mainRouter.post('/fav',postFav);
+mainRouter.post('/fav', postFav);
 
-mainRouter.delete('/fav/:id',deleteFav);
+mainRouter.delete('/fav/:id', deleteFav);
 
 module.exports = {mainRouter};

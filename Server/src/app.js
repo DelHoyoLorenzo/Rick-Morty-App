@@ -1,20 +1,12 @@
-const server = require('./app');
-
-/* const express = require('express');
+const express = require('express');
 const {mainRouter} = require('./routes/index');
 const cors = require('cors');
 const morgan = require('morgan')
 const server = express();
-server.use(cors()) */
-const PORT = 3001;
 
+server.use(cors())
 
-
-server.listen(PORT, () => {
-   console.log('Server raised in port: ' + PORT);
-});
-
-/* server.use((req, res, next) => {
+server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header(
@@ -28,7 +20,7 @@ server.listen(PORT, () => {
     next();
  });
 
-server.use(express.json()); */
+server.use(express.json());
 
 /* server.use((req,res,next)=>{
     req.url = "/rickandmorty" + req.url;
@@ -36,8 +28,8 @@ server.use(express.json()); */
 }) */
 //agrega el prefijo "/rickandmorty" a todas las URLs entrantes
 
-/* server.use(morgan('dev'));
+server.use(morgan('dev'));
 
-server.use('/rickandmorty',mainRouter); */
+server.use('/rickandmorty',mainRouter);
 
-// todas las rutas definidas en mainRouter estarán disponibles bajo el prefijo "/rickandmorty"
+module.exports = server;

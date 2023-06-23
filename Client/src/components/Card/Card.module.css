@@ -1,32 +1,38 @@
 .carta {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(77, 64, 196);
-    border: 2px black solid;
-    border-radius: 10px;
-    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
-    height: auto;
-    margin-bottom: 50px;
-    &:hover {
-      background-color: transparent;
-      scale: 0.96;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-color: rgb(77, 64, 196);
+  border: 2px black solid;
+  border-radius: 10px;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  height: auto;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  &:hover {
+    background-color: transparent;
+    scale: 0.96;
+    .tituloCarta {
+      color: white;
+      font-size: 40px;
+      font-family: "Get Schwifty";
+      margin: 1%;
     }
-    animation: rotatescaledown 0.4s linear both;
+  }
+  animation: rotatescaledown 0.4s linear both;
 }
-  @keyframes rotatescaledown {
-    0% {
-      transform: scale(1) rotateZ(0);
-    }
-    50% {
-      transform: scale(0.5) rotateZ(180deg);
-    }
-    100% {
-      transform: scale(1) rotateZ(360deg);
-    }
+@keyframes rotatescaledown {
+  0% {
+    transform: scale(1) rotateZ(0);
+  }
+  50% {
+    transform: scale(0.5) rotateZ(180deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(360deg);
+  }
 }
 
 .boton {
@@ -51,7 +57,8 @@
   margin: 10px;
   border-radius: 5px;
   /* box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5); */
-  box-shadow: 0 0 10px #a300e2, 0 0 20px #8100cc, 0 0 30px #5f00b4, 0 0 40px #390099, 0 0 50px #1d006e, 0 0 60px #040047, 0 0 70px #000000;
+  box-shadow: 0 0 10px #a300e2, 0 0 20px #8100cc, 0 0 30px #5f00b4,
+    0 0 40px #390099, 0 0 50px #1d006e, 0 0 60px #040047, 0 0 70px #000000;
 }
 
 .texto {
@@ -67,4 +74,11 @@
   margin: 1%;
 }
 
-
+.botonFav{
+  background-color: wheat;
+  border-radius: 10px;
+  cursor: pointer;
+  /* margin-top: 5px; */
+  margin-bottom: 1px;
+  font-size: medium;
+}

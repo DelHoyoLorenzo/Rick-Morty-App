@@ -1,3 +1,5 @@
+import { ADD_FAV, REMOVE_FAV, GET_CHARACTER_DETAIL, CLEAN_DETAIL, FILTER, ORDER } from "./actions";
+
 const initialState = {
     myFavorites:[],
     allCharacters: [],
@@ -6,26 +8,27 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
-        case 'ADD_FAV':
+        /* case ADD_FAV:
                 return{
                     ...state,
                     myFavorites: [...state.myFavorites, action.payload],
-                    allCharacters:[...state.myFavorites, action.payload],
+                    allCharacters:[...state.allCharacters, action.payload],
                     // creo una copia de todos mis favoritos, en allCharacters
-                };
-        /* case 'ADD_FAV':
+                }; */
+        case ADD_FAV:
             return { 
                 ...state, 
-                myFavorites: action.payload, 
-                allCharacters: action.payload 
-            }; */
-        
-        case 'REMOVE_FAV':
-            return { 
-                ...state, 
-                myFavorites: action.payload 
+                myFavorites: action.payload,
+                allCharacters: action.payload
             };
-        /* case 'REMOVE_FAV':
+        
+        case REMOVE_FAV:
+            return { 
+                ...state, 
+                myFavorites: action.payload,
+                allCharacters: action.payload 
+            };
+        /* case REMOVE_FAV:
             return{
                 ...state,
                 myFavorites: [...state.myFavorites.filter((personaje)=>{return personaje.id !== Number(action.payload)})],
@@ -35,7 +38,7 @@ const rootReducer = (state = initialState, action) => {
 y se devuelva un nuevo array en lugar de modificar el existente. */
             
         
-        case 'FILTER':
+        case FILTER:
             
           if(action.payload !== 'AllCharacters'){
             return{
@@ -51,7 +54,7 @@ y se devuelva un nuevo array en lugar de modificar el existente. */
           }
            
         
-        case 'ORDER':
+        case ORDER:
             if(action.payload === 'A'){
                 return{
                     ...state,

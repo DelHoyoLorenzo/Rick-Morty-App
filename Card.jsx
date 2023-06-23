@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import style from "./Card.module.css";
-
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions";
 
@@ -18,14 +16,6 @@ export function Card(props) {
 
   let [isFav, setIsFav] = useState(false);
 
-  useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === character.id) {
-        setIsFav(true);
-      }
-    });
-  }, [myFavorites]);
-
   let handleFavorite = function () {
     if(!isFav) {
       setIsFav(true);
@@ -35,15 +25,23 @@ export function Card(props) {
       removeFav(character.id);
     }
   };
+
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === character.id) {
+        setIsFav(true);
+      }
+    }); 
+  },[myFavorites, character.id]);
 //al momento de conectarme, cada vez q recargue mi pagina
 /* cada vez q mi estado global myFavorites se modifique el useEffect se vuelve a ejecutar */
 
   return (
     <div className={style.carta}>
       {isFav ? (
-        <button className={style.botonFav} onClick={handleFavorite}>❤️</button>
+        <button onClick={handleFavorite}>❤️</button>
       ) : (
-        <button className={style.botonFav} onClick={handleFavorite}>🤍</button>
+        <button onClick={handleFavorite}>🤍</button>
       )}
       {/* <Link to={`/detail/${character.id}`}>
         
