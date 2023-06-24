@@ -2,8 +2,6 @@ body {
   margin: 0%;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  /* -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
   background: url('./Assets/fondo2.png');
   background-size: cover;
   background-attachment: fixed;
@@ -25,6 +23,6 @@ body {
     background-position: 0% 0%;
   }
   100% {
-    background-position: 200% 200%; /* Ajusta el valor según tus necesidades */
+    background-position: 200% 200%;
   }
 }

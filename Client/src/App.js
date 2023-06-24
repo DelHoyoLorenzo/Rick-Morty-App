@@ -14,7 +14,6 @@ import Favorites from "./views/Favorites/Favorites.jsx";
 
 import { removeFav } from "./redux/actions.js";
 import { connect } from "react-redux";
-
 import axios from "axios";
 
 function App({ removeFav }) {
@@ -84,7 +83,14 @@ function App({ removeFav }) {
           logOut={logOut}
         />
       )}
-
+      {/* <div className="video-background">
+        <video className="video" loop muted autoPlay>
+          <source
+            src="./Assets/morty-in-the-space-video.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div> */}
       <Routes>
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="/about" element={<About />} />

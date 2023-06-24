@@ -1,11 +1,11 @@
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import style from "./Nav.module.css";
-import imagen from "../../Assets/logo.jpg";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Nav(props) {
   let { onSearch, onSearchRandom, logOut } = props;
-
+  let location = useLocation();
   return (
     <div className={style.sectorBarraNav}>
       <div>
@@ -30,11 +30,9 @@ export default function Nav(props) {
         </div>
       </div>
 
-      {/* <img className={style.imagen} src={imagen} alt='imagen'/> */}
-
-      <div className={style.sectorBar}>
+      {location.pathname !== '/favorites' && <div className={style.sectorBar}>
         <SearchBar onSearch={onSearch} onSearchRandom={onSearchRandom} />
-      </div>
+      </div> }
     </div>
   );
 }
