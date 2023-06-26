@@ -1,8 +1,7 @@
 let myFavorites = [];
 
 function postFav(req, res){
-    //req.body es el personaje, es un objeto
-    myFavorites.push(req.body)
+    myFavorites.unshift(req.body)
 
     return  res.status(200).json(myFavorites)
     

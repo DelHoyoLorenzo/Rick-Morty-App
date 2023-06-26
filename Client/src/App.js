@@ -1,29 +1,27 @@
 import Nav from "./components/Nav/Nav.jsx";
 import Cards from "./components/Cards/Cards.jsx";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import {removeFav} from "./redux/actions.js";
 import About from "./views/About/About.jsx";
 import Detail from "./views/Detail/Detail.jsx";
 import Error from "./views/Error/Error.jsx";
 import Form from "./views/Form/Form.jsx";
 import Favorites from "./views/Favorites/Favorites.jsx";
 
-import { removeFav } from "./redux/actions.js";
-import { connect } from "react-redux";
 import axios from "axios";
 
-function App({ removeFav }) {
+function App() {
   let [characters, setCharacters] = useState([]);
+  let dispatch = useDispatch();
 
   let onClose = function (id) {
     const filtrados = characters.filter((elem) => elem.id !== id);
 
     setCharacters(filtrados);
-    removeFav(id);
+    dispatch(removeFav(id));
   };
 
   function onSearchRandom() {
@@ -39,10 +37,10 @@ function App({ removeFav }) {
         );
         let data = await response.json();
 
-        setCharacters((oldChars) => [...oldChars, data]);
+        setCharacters((oldChars) => [data, ...oldChars]);
       }
     } catch (error) {
-      window.alert("No hay personajes con ese Id");
+        alert("No hay personajes con ese Id");
     }
   }
 
@@ -112,12 +110,4 @@ function App({ removeFav }) {
   );
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    removeFav: (id) => {
-      return dispatch(removeFav(id));
-    },
-  };
-}
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

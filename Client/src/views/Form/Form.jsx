@@ -54,7 +54,7 @@ export default function Form({login}){
             type='text'
             placeholder="Escribe tu email..."
             />
-            {errors.email && <p className={style.danger}>{errors.email}</p>}
+            {errors.email && <div className={style.danger}>{errors.email}</div>}
 
             <label className={style.label}>Contraseña</label>
             <input
@@ -65,7 +65,7 @@ export default function Form({login}){
             type='password'
             placeholder="Escribe tu password..."
             />
-            {errors.password && <p className={style.danger}>{errors.password}</p>}
+            {errors.password && <div className={style.danger}>{errors.password}</div>}
             <button className={style.boton} type="submit">SUBMIT</button>
         </form>
       </div>

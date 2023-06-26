@@ -10,7 +10,7 @@ export default function Detail(){
 
     const [loading, setLoading]= useState(true);
     
-    useEffect(() => {
+    useEffect(() => { //no se usa async await porque con useEffect es mejor manejar promesas con then
         fetch(`http://localhost:3001/rickandmorty/character/${id}`)
            .then(response => response.json())
            .then(data => {
@@ -18,7 +18,7 @@ export default function Detail(){
                  setCharacter(data);
     
               } else {
-                 window.alert('No hay personajes con ese ID');
+                 alert('No hay personajes con ese ID');
               }
               setLoading(false);
            })
@@ -34,14 +34,15 @@ export default function Detail(){
     if(Object.keys(character).length !== 0){
             return( 
             <div className={style.detailConteiner} >
-               <img className={style.imagen} src={character.image} alt={character.name} />
-               
-               <div className={style.textos}> 
+               <div>
+                  <img className={style.imagen} src={character.image} alt={character.name} />
+                  <div className={style.textos}> 
                   <h2 /* className={style.tituloCarta} */>Name: {character.name}</h2>
                   <h2 /* className={style.texto} */>Status: {character.status}</h2>
                   <h2 /* className={style.texto} */>Specie:{character.species}</h2>
                   <h2 /* className={style.texto} */>Gender:{character.gender}</h2>
                   <h2 /* className={style.texto} */>Origin: {character.origin}</h2>
+               </div>
                </div>
             </div>
              );

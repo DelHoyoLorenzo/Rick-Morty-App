@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import style from "./Card.module.css";
-
-import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions";
+import { useDispatch,useSelector } from "react-redux";
 
 export function Card(props) {
-  
-  let { character, onClose , myFavorites, removeFav, addFav} = props;
-
+  let dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  let { character, onClose} = props;
+
+  let myFavorites = useSelector((state)=> state.myFavorites)
+  
 
   let navigateHandler = function () {
     navigate(`/detail/${character.id}`);
@@ -24,19 +25,19 @@ export function Card(props) {
         setIsFav(true);
       }
     });
-  }, [myFavorites]);
+  }, [myFavorites, character.id]);
 
   let handleFavorite = function () {
     if(!isFav) {
       setIsFav(true);
-      addFav(character);
+      dispatch(addFav(character));
     } else {
       setIsFav(false);
-      removeFav(character.id);
+      dispatch(removeFav(character.id));
     }
   };
-//al momento de conectarme, cada vez q recargue mi pagina
-/* cada vez q mi estado global myFavorites se modifique el useEffect se vuelve a ejecutar */
+/*al momento de conectarme, cada vez q recargue mi pagina
+ cada vez q mi estado global myFavorites se modifique el useEffect se vuelve a ejecutar */
 
   return (
     <div className={style.carta}>
@@ -45,14 +46,7 @@ export function Card(props) {
       ) : (
         <button className={style.botonFav} onClick={handleFavorite}>🤍</button>
       )}
-      {/* <Link to={`/detail/${character.id}`}>
-        
-      </Link> */}
       <h2 className={style.tituloCarta}>{character.name}</h2>
-      {/* <h2 className={style.texto}>{character.status}</h2> */}
-      {/* <h2 className={style.texto}>{character.species}</h2>
-      <h2 className={style.texto}>{character.gender}</h2> */}
-      {/* <h2 className={style.texto}>{character.origin.name}</h2> */}
       <img
         className={style.imagen}
         src={character.image}
@@ -66,6 +60,10 @@ export function Card(props) {
   );
 }
 
+
+export default Card;
+
+/*CON COMPONENTE DE CLASE SERIA ASI 
 export function mapDispatchToProps(dispatch) {
   return {
     addFav: (character) => {
@@ -81,6 +79,4 @@ export function mapStateToProps(state) {
   return {
     myFavorites: state.myFavorites,
   };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+} */

@@ -30,9 +30,9 @@ export default function Nav(props) {
         </div>
       </div>
 
-      {location.pathname !== '/favorites' && <div className={style.sectorBar}>
+      {(location.pathname === '/home') && (<div className={style.sectorBar}>
         <SearchBar onSearch={onSearch} onSearchRandom={onSearchRandom} />
-      </div> }
+      </div>) }
     </div>
   );
 }

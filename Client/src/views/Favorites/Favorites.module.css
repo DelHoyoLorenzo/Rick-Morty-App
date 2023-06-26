@@ -29,4 +29,21 @@
     border: none;
     cursor: pointer;
     margin:5px;
-  }
+}
+
+.contenedorTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2B2730;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 200px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+  
+.textoAnimado {
+    color: wheat;
+    font-size: xx-large;
+}
