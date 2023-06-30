@@ -4,13 +4,11 @@ import style from "./Card.module.css";
 import { addFav, removeFav } from "../../redux/actions";
 import { useDispatch,useSelector } from "react-redux";
 
-export function Card(props) {
+export function Card({character, onClose}) {
   let dispatch = useDispatch();
   const navigate = useNavigate();
   
-  let { character, onClose} = props;
-
-  let myFavorites = useSelector((state)=> state.myFavorites)
+  let allCharacters = useSelector((state)=> state.allCharacters)
   
 
   let navigateHandler = function () {
@@ -20,12 +18,12 @@ export function Card(props) {
   let [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
+    allCharacters.forEach((fav) => {
       if (fav.id === character.id) {
         setIsFav(true);
       }
     });
-  }, [myFavorites, character.id]);
+  }, [allCharacters, character.id]);
 
   let handleFavorite = function () {
     if(!isFav) {
@@ -53,7 +51,7 @@ export function Card(props) {
         alt={character.name}
         onClick={navigateHandler}
       />
-      <button className={style.boton} onClick={() => onClose(character.id)}>
+      <button className={style.boton} onClick={()=> onClose(character.id)}>
         Eliminar
       </button>
     </div>

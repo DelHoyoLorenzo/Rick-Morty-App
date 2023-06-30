@@ -23,10 +23,12 @@ export function Favorites({ onClose }) {
     <div className={style.contenedor}>
       <div className={style.contenedorBotones}>
         <select onChange={handleOrder} className={style.boton}>
+          <option value="Sort">Sort</option>
           <option value="A">Ascendente</option>
           <option value="D">Descendente</option>
         </select>
         <select onChange={handleFilter} className={style.boton}>
+          <option value="Filter">Filter</option>
           <option value="AllCharacters">AllCharacters</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>

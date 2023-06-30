@@ -1,5 +1,6 @@
 import axios from "axios";
-
+export const ADD_CHAR = "ADD_CHAR";
+export const REMOVE_CHAR = "REMOVE_CHAR";
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
 export const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";
@@ -7,7 +8,32 @@ export const CLEAN_DETAIL = "CLEAN_DETAL";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 
-export const addFav = (character) => {//PORQ NO VA ASYNC ACA: async en la declaración de la función addFav, lo cual es innecesario ya que Redux Thunk manejará la asincronía por ti. Puedes eliminar la palabra clave async y dejar que Redux Thunk se encargue de envolver tu función de acción asincrónica.
+export const removeChar = (id) => {
+  return {
+    type: REMOVE_CHAR,
+    payload: id,
+  };
+};
+
+export const addChar = (id) => {
+  try {
+    return async (dispatch) => {
+      let response = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      let data = response.data;
+      return dispatch({
+        type: ADD_CHAR,
+        payload: data,
+      });
+    };
+  } catch (error) {
+    alert("No hay personajes con ese Id");
+  }
+};
+
+export const addFav = (character) => {
+  //PORQ NO VA ASYNC ACA: async en la declaración de la función addFav, lo cual es innecesario ya que Redux Thunk manejará la asincronía por ti. Puedes eliminar la palabra clave async y dejar que Redux Thunk se encargue de envolver tu función de acción asincrónica.
   /* return{
         type: ADD_FAV,
         payload: character

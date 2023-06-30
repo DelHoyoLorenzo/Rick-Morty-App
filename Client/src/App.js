@@ -3,8 +3,8 @@ import Cards from "./components/Cards/Cards.jsx";
 
 import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import {removeFav} from "./redux/actions.js";
+import { useDispatch, useSelector } from "react-redux";
+import {addChar, removeFav, removeChar} from "./redux/actions.js";
 import About from "./views/About/About.jsx";
 import Detail from "./views/Detail/Detail.jsx";
 import Error from "./views/Error/Error.jsx";
@@ -14,13 +14,17 @@ import Favorites from "./views/Favorites/Favorites.jsx";
 import axios from "axios";
 
 function App() {
-  let [characters, setCharacters] = useState([]);
+  /* let [characters, setCharacters] = useState([]); */
+  
   let dispatch = useDispatch();
+  let characters = useSelector((state)=> state.characters);
 
   let onClose = function (id) {
-    const filtrados = characters.filter((elem) => elem.id !== id);
-
-    setCharacters(filtrados);
+   /*  const filtrados = characters.filter((elem) => elem.id !== id);
+ */
+console.log(id)
+    /* setCharacters(filtrados); */
+    dispatch(removeChar(id));
     dispatch(removeFav(id));
   };
 
@@ -30,7 +34,7 @@ function App() {
   }
 
   async function onSearch(id) {
-    try {
+    /* try {
       if (!characters.find((elem) => elem.id === id)) {
         let response = await fetch(
           `http://localhost:3001/rickandmorty/character/${id}`
@@ -41,7 +45,8 @@ function App() {
       }
     } catch (error) {
         alert("No hay personajes con ese Id");
-    }
+    } */
+    dispatch(addChar(id));
   }
 
   let location = useLocation();
@@ -58,8 +63,13 @@ function App() {
 
       const { access } = data;
       setAccess(data);
-      access && navigate("/home");
-    } catch (error) {}
+      if(access){
+        await axios.delete(URL)
+        navigate("/home");
+      }
+    } catch (error) {
+      alert('Email o contraseña incorrecto')
+    }
   }
 
   useEffect(() => {

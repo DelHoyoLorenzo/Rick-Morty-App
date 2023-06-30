@@ -37,21 +37,18 @@
 }
 
 .boton {
-  background-color: wheat;
+  background-color: #FFE79B;
   border-radius: 10px;
   cursor: pointer;
+  padding:5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  font-size: xx-large;
+  font-size: x-large;
+  font-weight: bold;
 }
 .boton:hover {
   background-color: black;
   color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: xx-large;
 }
 
 .imagen {
@@ -63,8 +60,7 @@
 }
 
 .texto {
-  color: wheat;
-  font-family: "Courier New", Courier, monospace;
+  color: #FFE79B;
   margin: 1%;
 }
 
@@ -76,10 +72,9 @@
 }
 
 .botonFav{
-  background-color: wheat;
+  background-color: #FFE79B;
   border-radius: 10px;
   cursor: pointer;
-  /* margin-top: 5px; */
   margin-bottom: 1px;
   font-size: medium;
 }

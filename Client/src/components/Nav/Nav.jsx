@@ -2,6 +2,7 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import style from "./Nav.module.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import {SiGooglehome} from 'react-icons/si';
 
 export default function Nav(props) {
   let { onSearch, onSearchRandom, logOut } = props;
@@ -17,7 +18,8 @@ export default function Nav(props) {
         </Link>
 
         <Link to="/home">
-          <button className={style.boton}>Home</button>
+          {/* <button className={style.boton}><SiGooglehome /></button> */}
+          <SiGooglehome className = {style.botonHome}/>
         </Link>
 
         <Link to="/favorites">

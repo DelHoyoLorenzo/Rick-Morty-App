@@ -1,13 +1,23 @@
-import { ADD_FAV, REMOVE_FAV, GET_CHARACTER_DETAIL, CLEAN_DETAIL, FILTER, ORDER } from "./actions";
+import { ADD_FAV, REMOVE_FAV, ADD_CHAR, GET_CHARACTER_DETAIL, CLEAN_DETAIL, FILTER, ORDER, REMOVE_CHAR } from "./actions";
 
 const initialState = {
     myFavorites:[],
     allCharacters: [],
-    
+    characters: [],
 };
 
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
+        case ADD_CHAR:
+            return{
+                ...state,
+                characters: [action.payload, ...state.characters]
+            }
+        case REMOVE_CHAR:
+            return{
+                ...state,
+                characters: state.characters.filter((character)=> character.id !== action.payload)
+            }
         /* case ADD_FAV:
                 return{
                     ...state,
@@ -34,24 +44,30 @@ const rootReducer = (state = initialState, action) => {
                 myFavorites: [...state.myFavorites.filter((personaje)=>{return personaje.id !== Number(action.payload)})],
                 allCharacters: [...state.allCharacters.filter((personaje)=>{return personaje.id !== Number(action.payload)})]
             } */
-/* (...)se usa para crear una copia del array original, garantiza que se mantenga inmutable 
-y se devuelva un nuevo array en lugar de modificar el existente. */
-            
-        
+        /* (...)se usa para crear una copia del array original, garantiza que se mantenga inmutable 
+        y se devuelva un nuevo array en lugar de modificar el existente. */
+         
         case FILTER:
             
-          if(action.payload !== 'AllCharacters'){
+          if(action.payload !== 'AllCharacters' && action.payload !== 'Filter'){
             return{
                 ...state,//no modifico all characters
                 myFavorites: state.allCharacters.filter((personaje)=> personaje.gender === action.payload)
                 //copia el arreglo de todos los favoritos no lo muto y devuelvo el arreglo de filtradosS
             }
-             }else{
+          }else if(action.payload === 'Filter'){
+            return{
+                ...state,
+                myFavorites: state.allCharacters,
+            }
+          }else{
             return{
                 ...state,
                 myFavorites: state.allCharacters,
             }
           }
+
+          
            
         
         case ORDER:
