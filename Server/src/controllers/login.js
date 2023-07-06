@@ -1,4 +1,3 @@
-const users = require("../utils/user");
 
 function loginHandler(req, res) {
   try {

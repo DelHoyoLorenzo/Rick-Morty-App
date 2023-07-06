@@ -24,7 +24,9 @@ export function Card({character, onClose}) {
       }
     });
   }, [allCharacters, character.id]);
-
+  /*al momento de conectarme, cada vez q recargue mi pagina
+   cada vez q mi estado global allcharacter se modifique el useEffect se vuelve a ejecutar */
+  
   let handleFavorite = function () {
     if(!isFav) {
       setIsFav(true);
@@ -34,8 +36,6 @@ export function Card({character, onClose}) {
       dispatch(removeFav(character.id));
     }
   };
-/*al momento de conectarme, cada vez q recargue mi pagina
- cada vez q mi estado global myFavorites se modifique el useEffect se vuelve a ejecutar */
 
   return (
     <div className={style.carta}>

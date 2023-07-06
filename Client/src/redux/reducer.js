@@ -16,7 +16,9 @@ const rootReducer = (state = initialState, action) => {
         case REMOVE_CHAR:
             return{
                 ...state,
-                characters: state.characters.filter((character)=> character.id !== action.payload)
+                characters: state.characters.filter((character)=> character.id !== action.payload),
+                myFavorites: state.allCharacters.filter((character)=> character.id !== action.payload)
+                
             }
         /* case ADD_FAV:
                 return{

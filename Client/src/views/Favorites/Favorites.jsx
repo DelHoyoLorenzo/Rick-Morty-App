@@ -6,6 +6,7 @@ import style from "./Favorites.module.css";
 
 export function Favorites({ onClose }) {
   let dispatch = useDispatch();
+  let allCharacters = useSelector((state) => state.allCharacters);
   let myFavorites = useSelector((state) => state.myFavorites);
 
   const [aux, setAux] = useState(false);
@@ -36,7 +37,7 @@ export function Favorites({ onClose }) {
           <option value="unknown">Unknown</option>
         </select>
       </div>
-      {!myFavorites.length && (
+      {!allCharacters.length && (
         <div className={style.contenedorTexto}>
           <div className={style.textoAnimado}>¡Agregue sus personajes favoritos!</div>
         </div>

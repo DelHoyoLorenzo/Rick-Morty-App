@@ -20,10 +20,6 @@ function App() {
   let characters = useSelector((state)=> state.characters);
 
   let onClose = function (id) {
-   /*  const filtrados = characters.filter((elem) => elem.id !== id);
- */
-console.log(id)
-    /* setCharacters(filtrados); */
     dispatch(removeChar(id));
     dispatch(removeFav(id));
   };
@@ -51,7 +47,7 @@ console.log(id)
 
   let location = useLocation();
   const navigate = useNavigate();
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
 
   async function login(userData) {
     try {
@@ -64,7 +60,7 @@ console.log(id)
       const { access } = data;
       setAccess(data);
       if(access){
-        await axios.delete(URL)
+        /* await axios.delete(URL) */
         navigate("/home");
       }
     } catch (error) {

@@ -33,11 +33,6 @@ export const addChar = (id) => {
 };
 
 export const addFav = (character) => {
-  //PORQ NO VA ASYNC ACA: async en la declaración de la función addFav, lo cual es innecesario ya que Redux Thunk manejará la asincronía por ti. Puedes eliminar la palabra clave async y dejar que Redux Thunk se encargue de envolver tu función de acción asincrónica.
-  /* return{
-        type: ADD_FAV,
-        payload: character
-    } */
   try {
     const endpoint = "http://localhost:3001/rickandmorty/fav";
     return async (dispatch) => {
@@ -48,14 +43,12 @@ export const addFav = (character) => {
         payload: data,
       });
     };
-  } catch (error) {}
+  } catch (error) {
+    /* console.log('error en add fav', error.message) */
+  }
 };
 
 export const removeFav = (id) => {
-  /* return{
-        type: REMOVE_FAV,
-        payload: id
-    } */
   try {
     const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
     return async (dispatch) => {
